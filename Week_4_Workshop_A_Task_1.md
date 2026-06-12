@@ -26,48 +26,17 @@ The following matrix outlines the key personnel, communication channels, and Ser
 
 ---
 
-## 3. Detection Triggers
+## 3. Incident Lifecycle Navigation
 
-Indicators of Compromise (IoCs) and events that trigger the activation of this IRP include, but are not limited to:
+To ensure rapid execution, the detailed procedures for specific phases of this plan have been modularized into dedicated operational playbooks:
 
-* **Cloud Infrastructure Anomalies:** Unauthorized API calls, unexpected configuration changes in the production environment, or brute-force attempts on root/admin accounts.
-* **Data Exfiltration Signals:** Unusual volume of data egress from healthcare databases or unauthorized access to patient records.
-* **Malware/Ransomware Alerts:** Endpoint Detection and Response (EDR) alerts signaling active ransomware or malicious binaries within the cloud network.
-* **Third-Party Notifications:** Escalations from NHS Trust security operations or threat intelligence feeds regarding compromised MediCore assets.
-
----
-
-## 4. Containment
-
-Immediate tactical steps to limit the scale and disruption of the incident:
-
-* **Short-Term Isolation:** Isolate affected cloud workloads, compromise user accounts, or virtual networks using automated security groups and IAM policy restrictions.
-* **Evidence Preservation:** Take forensic snapshots of affected virtual machine disks and dump volatile memory where applicable before terminating resources.
-* **System Backups:** Verify the integrity and isolation of immutable backups to ensure they have not been targeted by the attacker.
+* **Detection & Triggers:** Refer to `DETECTION_TRIGGERS.md` for monitoring rules and UK GDPR Article 32 mapping.
+* **Containment & Eradication:** Refer to `INCIDENT_PLAYBOOKS.md` for step-by-step CLI isolation and remediation commands.
+* **Regulatory Reporting:** Refer to `BREACH_NOTIFICATION.md` for the strict 72-hour regulatory escalation chain.
 
 ---
 
-## 5. Eradication
-
-Steps taken to completely remove the threat from the environment:
-
-* **Vulnerability Remediation:** Identify and patch the initial entry point (e.g., misconfigured cloud storage, unpatched software, or compromised credentials).
-* **Threat Removal:** Delete malicious files, revoke compromised API keys/certificates, and force global password resets for impacted accounts.
-* **Sanitization Verification:** Run deep security scans across the environment to confirm no residual backdoors or malware remain.
-
----
-
-## 6. ICO Notification
-
-In accordance with UK GDPR guidelines for data breaches involving Personal Identifiable Information (PII) or protected health information:
-
-* **Reporting Timeline:** The Information Commissioner’s Office (ICO) must be notified without undue delay and, where feasible, not later than **72 hours** after becoming aware of the breach.
-* **Submission Channel:** Reports must be officially logged via the [report.ico.org.uk](https://report.ico.org.uk) portal.
-* **Content Required:** Description of the nature of the breach, approximate number of data subjects concerned, likely consequences, and measures taken or proposed to mitigate the impact.
-
----
-
-## 7. Recovery
+## 4. Recovery
 
 Restoring systems to secure, normal operations:
 
@@ -77,7 +46,7 @@ Restoring systems to secure, normal operations:
 
 ---
 
-## 8. Lessons Learned
+## 5. Lessons Learned
 
 Post-incident review processes to prevent future recurrences:
 
